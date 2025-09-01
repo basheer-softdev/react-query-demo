@@ -1,0 +1,117 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Introduction to Fullstack Development",
+      "body": "Exploring the roles of frontend and backend in web applications."
+    },
+    {
+      "id": "2",
+      "title": "Getting Started with HTML and CSS",
+      "body": "The foundation of web development for beginners."
+    },
+    {
+      "id": "3",
+      "title": "JavaScript Essentials for Fullstack Developers",
+      "body": "Mastering the core language of the web."
+    },
+    {
+      "id": "4",
+      "title": "Understanding RESTful APIs",
+      "body": "Building and consuming APIs in fullstack projects."
+    },
+    {
+      "id": "5",
+      "title": "Database Basics with MongoDB",
+      "body": "Storing and retrieving data efficiently with NoSQL."
+    },
+    {
+      "id": "6",
+      "title": "Working with Express.js",
+      "body": "Building backend services and APIs with Node.js framework."
+    },
+    {
+      "id": "7",
+      "title": "Frontend Development with React",
+      "body": "Creating dynamic user interfaces with reusable components."
+    },
+    {
+      "id": "8",
+      "title": "State Management with Redux",
+      "body": "Handling complex app state in large-scale applications."
+    },
+    {
+      "id": "9",
+      "title": "Authentication and Security",
+      "body": "Implementing user authentication and securing web apps."
+    },
+    {
+      "id": "10",
+      "title": "Deployment Strategies",
+      "body": "Deploying fullstack applications to production environments."
+    }
+  ],
+  "items": [
+    {
+      "id": "1",
+      "name": "Apple",
+      "color": "Red",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "2",
+      "name": "Banana",
+      "color": "Yellow",
+      "vitamin": "Vitamin B6"
+    },
+    {
+      "id": "3",
+      "name": "Carrot",
+      "color": "Orange",
+      "vitamin": "Vitamin A"
+    },
+    {
+      "id": "4",
+      "name": "Tomato",
+      "color": "Red",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "5",
+      "name": "Spinach",
+      "color": "Green",
+      "vitamin": "Vitamin K"
+    },
+    {
+      "id": "6",
+      "name": "Grapes",
+      "color": "Purple",
+      "vitamin": "Vitamin B1"
+    },
+    {
+      "id": "7",
+      "name": "Mango",
+      "color": "Yellow",
+      "vitamin": "Vitamin A"
+    },
+    {
+      "id": "8",
+      "name": "Strawberry",
+      "color": "Red",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "9",
+      "name": "Broccoli",
+      "color": "Green",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "10",
+      "name": "Blueberry",
+      "color": "Blue",
+      "vitamin": "Vitamin K"
+    }
+  ],
+  "users": []
+}
