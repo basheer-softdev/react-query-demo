@@ -49,6 +49,56 @@
       "id": "10",
       "title": "Deployment Strategies",
       "body": "Deploying fullstack applications to production environments."
+    },
+    {
+      "id": "11",
+      "title": "Version Control with Git",
+      "body": "Collaborating on code and tracking changes using Git."
+    },
+    {
+      "id": "12",
+      "title": "Responsive Web Design",
+      "body": "Creating websites that work seamlessly across devices."
+    },
+    {
+      "id": "13",
+      "title": "Introduction to TypeScript",
+      "body": "Enhancing JavaScript with static typing for scalable projects."
+    },
+    {
+      "id": "14",
+      "title": "GraphQL vs REST",
+      "body": "Choosing the right API design for modern applications."
+    },
+    {
+      "id": "15",
+      "title": "Testing in JavaScript",
+      "body": "Ensuring application quality with unit and integration tests."
+    },
+    {
+      "id": "16",
+      "title": "Performance Optimization",
+      "body": "Techniques to make web applications faster and smoother."
+    },
+    {
+      "id": "17",
+      "title": "Containerization with Docker",
+      "body": "Simplifying deployment with lightweight containers."
+    },
+    {
+      "id": "18",
+      "title": "Continuous Integration and Deployment",
+      "body": "Automating testing and deployment pipelines."
+    },
+    {
+      "id": "19",
+      "title": "Microservices Architecture",
+      "body": "Breaking down monolithic apps into smaller services."
+    },
+    {
+      "id": "20",
+      "title": "Future of Web Development",
+      "body": "Exploring trends like serverless, AI, and edge computing."
     }
   ],
   "items": [
@@ -110,6 +160,66 @@
       "id": "10",
       "name": "Blueberry",
       "color": "Blue",
+      "vitamin": "Vitamin K"
+    },
+    {
+      "id": "11",
+      "name": "Pineapple",
+      "color": "Yellow",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "12",
+      "name": "Cucumber",
+      "color": "Green",
+      "vitamin": "Vitamin K"
+    },
+    {
+      "id": "13",
+      "name": "Papaya",
+      "color": "Orange",
+      "vitamin": "Vitamin A"
+    },
+    {
+      "id": "14",
+      "name": "Watermelon",
+      "color": "Green/Red",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "15",
+      "name": "Lemon",
+      "color": "Yellow",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "16",
+      "name": "Pumpkin",
+      "color": "Orange",
+      "vitamin": "Vitamin A"
+    },
+    {
+      "id": "17",
+      "name": "Onion",
+      "color": "White",
+      "vitamin": "Vitamin B6"
+    },
+    {
+      "id": "18",
+      "name": "Garlic",
+      "color": "White",
+      "vitamin": "Vitamin B6"
+    },
+    {
+      "id": "19",
+      "name": "Kiwi",
+      "color": "Brown/Green",
+      "vitamin": "Vitamin C"
+    },
+    {
+      "id": "20",
+      "name": "Pear",
+      "color": "Green",
       "vitamin": "Vitamin K"
     }
   ],
