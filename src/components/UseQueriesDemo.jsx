@@ -21,8 +21,6 @@ const MultiplePosts = ({ postsIds }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(postQueries);
-
   return (
     <div className="posts">
       {postQueries.map((query, index) => (
