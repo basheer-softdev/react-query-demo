@@ -9,6 +9,10 @@ const fetchPosts = async () => {
   return data;
 };
 
+const createPost = async () => {
+  const { data } = await axios.post(API_URL, newPost);
+};
+
 const Home = () => {
   const {
     data: posts,
