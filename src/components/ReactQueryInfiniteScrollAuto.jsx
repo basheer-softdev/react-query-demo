@@ -1,34 +1,46 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useInView } from "react-intersection-observer";
 
-const fetchItems = ({ pageParam }) => {
-  return axios.get(`http://localhost:3001/items?_limit=10&_page=${pageParam}`);
+const fetchItems = async ({ pageParam }) => {
+  const res = await axios.get(
+    `http://localhost:3001/items?_limit=10&_page=${pageParam}`
+  );
+  return res.data;
 };
 
 const ReactQueryInfiniteScrollAuto = () => {
-  const { data, isLoading, error, isError, fetchNextPage, isFetching } =
-    useInfiniteQuery({
-      queryKey: ["items"],
-      queryFn: fetchItems,
-      initialPageParam: 1,
-      getNextPageParam: (lastPage, allPages) => {
-        if (allPages.length < 10) {
-          return allPages.length + 1;
-        } else {
-          return undefined;
-        }
-      },
-    });
+  const {
+    data, // Contains all fetched pages (data.pages)
+    isLoading, // True only on first fetch
+    error, // Error object from fetch
+    isError, // True if any fetch fails
+    fetchNextPage, // Function to fetch next page
+    isFetchingNextPage, // True while next page is loading
+    hasNextPage, // True if getNextPageParam returned a page number
+  } = useInfiniteQuery({
+    queryKey: ["items"],
+    queryFn: fetchItems,
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => {
+      // Stop if the last page has fewer than 10 items (end of data)
+      if (lastPage.length === 10) {
+        return allPages.length + 1;
+      } else {
+        return undefined;
+      }
+    },
+  });
 
+  // inView → Boolean, true when the element is visible in the viewport.
   const { ref, inView } = useInView();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && hasNextPage) {
       fetchNextPage();
     }
-  }, [inView, fetchNextPage]);
+  }, [inView, fetchNextPage, hasNextPage]);
 
   if (isLoading) {
     return <p>Please wait while loading...</p>;
@@ -42,7 +54,7 @@ const ReactQueryInfiniteScrollAuto = () => {
       <h3>ReactQueryInfiniteScroll</h3>
       <div className="items">
         {data?.pages.map((page) =>
-          page.data.map((item) => {
+          page.map((item) => {
             return (
               <div key={item.id} className="item">
                 {item.name}
@@ -51,7 +63,13 @@ const ReactQueryInfiniteScrollAuto = () => {
           })
         )}
       </div>
-      <div ref={ref}>{isFetching ? "Loading..." : "No More Records"}</div>
+      <div ref={ref}>
+        {isFetchingNextPage
+          ? "Loading more..."
+          : hasNextPage
+          ? "Scroll down to load more"
+          : "No More Records"}
+      </div>
     </div>
   );
 };

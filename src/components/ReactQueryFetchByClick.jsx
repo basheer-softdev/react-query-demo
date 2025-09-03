@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const fetchPosts = () => {
-  return axios.get("http://localhost:3001/posts");
+const fetchPosts = async () => {
+  const res = await axios.get("http://localhost:3001/posts");
+  return res.data;
 };
 
 const ReactQueryFetchByClick = () => {
   const { data, isLoading, error, isError, refetch } = useQuery({
     queryKey: ["posts"],
-    queryFn: () => fetchPosts(),
+    queryFn: fetchPosts,
     enabled: false,
   });
 
@@ -24,13 +25,17 @@ const ReactQueryFetchByClick = () => {
     <div className="container">
       <h3>ReactQueryFetch</h3>
       <ul className="posts">
-        {data?.data.map((post) => (
+        {data?.map((post) => (
           <li className="post" key={post.id}>
             {post.title}
           </li>
         ))}
       </ul>
-      <button onClick={refetch} className="refetch-btn">
+      <button
+        onClick={() => refetch()}
+        className="refetch-btn"
+        style={{ color: "black" }}
+      >
         Load Data
       </button>
     </div>

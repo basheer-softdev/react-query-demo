@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import "../Crud.css";
 
 const API_URL = "http://localhost:3001/posts/";

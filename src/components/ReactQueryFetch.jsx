@@ -28,7 +28,7 @@ const ReactQueryFetch = () => {
     <div className="container">
       <h3>ReactQueryFetch</h3>
       <ul className="posts">
-        {data.map((post) => (
+        {data?.map((post) => (
           <Link key={post.id} to={`/react-query-by-id/${post.id}`}>
             <li className="post">{post.title}</li>
           </Link>

@@ -1,9 +1,11 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
 
-const fetchItems = ({ pageParam }) => {
-  return axios.get(`http://localhost:3001/items?_limit=10&_page=${pageParam}`);
+const fetchItems = async ({ pageParam = 1 }) => {
+  const res = await axios.get(
+    `http://localhost:3001/items?_limit=10&_page=${pageParam}`
+  );
+  return res.data;
 };
 
 const ReactQueryInfiniteScroll = () => {
@@ -13,7 +15,7 @@ const ReactQueryInfiniteScroll = () => {
       queryFn: fetchItems,
       initialPageParam: 1,
       getNextPageParam: (lastPage, allPages) => {
-        if (allPages.length < 10) {
+        if (lastPage.length === 10) {
           return allPages.length + 1;
         } else {
           return undefined;
@@ -33,7 +35,7 @@ const ReactQueryInfiniteScroll = () => {
       <h3>ReactQueryInfiniteScroll</h3>
       <div className="items">
         {data?.pages.map((page) =>
-          page.data.map((item) => {
+          page.map((item) => {
             return (
               <div key={item.id} className="item">
                 {item.name}

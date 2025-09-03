@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const fetchItems = (pageNumber) => {
   return axios.get(`http://localhost:3001/items?_limit=10&_page=${pageNumber}`);
