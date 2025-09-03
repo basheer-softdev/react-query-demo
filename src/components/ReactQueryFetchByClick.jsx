@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
 
 const fetchPosts = () => {
   return axios.get("http://localhost:3001/posts");
@@ -10,9 +9,6 @@ const ReactQueryFetchByClick = () => {
   const { data, isLoading, error, isError, refetch } = useQuery({
     queryKey: ["posts"],
     queryFn: () => fetchPosts(),
-    // staleTime: 5000,
-    // refetchInterval: 1000,
-    // refetchIntervalInBackground: true,
     enabled: false,
   });
 
@@ -34,7 +30,9 @@ const ReactQueryFetchByClick = () => {
           </li>
         ))}
       </ul>
-      <button onClick={refetch} className="refetch-btn">Load Data</button>
+      <button onClick={refetch} className="refetch-btn">
+        Load Data
+      </button>
     </div>
   );
 };

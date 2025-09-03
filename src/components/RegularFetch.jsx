@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const RegularFetch = () => {
   const [posts, setPosts] = useState([]);
@@ -12,7 +12,7 @@ const RegularFetch = () => {
       const response = await axios.get("http://localhost:3001/posts");
       setPosts(response.data);
     } catch (error) {
-      setIsError(error);
+      setIsError(true);
       setError(error);
     } finally {
       setIsLoading(false);

@@ -1,19 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
 import { Link } from "react-router-dom";
 
-const fetchPosts = () => {
-  return axios.get("http://localhost:3001/posts");
+const fetchPosts = async () => {
+  const res = await axios.get("http://localhost:3001/posts");
+  return res.data;
 };
 
 const ReactQueryFetch = () => {
   const { data, isLoading, error, isError } = useQuery({
     queryKey: ["posts"],
     queryFn: () => fetchPosts(),
-    // staleTime: 5000,
-    // refetchInterval: 1000,
-    // refetchIntervalInBackground: true,
+    // staleTime: 5000, // data stays fresh for 5s
+    // refetchInterval: 1000, // fetch every 10s anyway
+    // refetchIntervalInBackground: true, // By default React Query pauses polling when the tab is inactive; set refetchIntervalInBackground: true to keep polling even in the background
   });
 
   if (isLoading) {
@@ -28,7 +28,7 @@ const ReactQueryFetch = () => {
     <div className="container">
       <h3>ReactQueryFetch</h3>
       <ul className="posts">
-        {data?.data.map((post) => (
+        {data.map((post) => (
           <Link key={post.id} to={`/react-query-by-id/${post.id}`}>
             <li className="post">{post.title}</li>
           </Link>
