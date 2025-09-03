@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 
 const API_URL = "http://localhost:3001/posts/";
 
@@ -9,11 +9,15 @@ const fetchPosts = async () => {
   return data;
 };
 
-const createPost = async () => {
+const createPost = async (newPost) => {
   const { data } = await axios.post(API_URL, newPost);
+  return data;
 };
 
 const Home = () => {
+  const [newPostTitle, setNewPostTitle] = useState("");
+  const [newPostBody, setNewPostBody] = useState("");
+
   const {
     data: posts,
     isError,
